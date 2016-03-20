@@ -1,0 +1,20 @@
+doctype html
+html
+  head
+    title Wait For it
+        //- link(rel="shortcut icon" type="image/x-icon" href="/images/favicon.png")
+
+    script(src="https://code.jquery.com/jquery-1.11.3.min.js")
+    script(src="/scripts/main.js")
+    link(rel="stylesheet" type="text/css" href="/styles/main.css")
+  body
+    h1 Wait For It!
+    p Main page
+    form
+        input#emailInput(placeholder="email")
+        input#dateInput(placeholder="date")
+        //- label Or choose a date:
+        //- input(type="date" name="date")
+    a#generateButton(href="#") Generate Password
+    p#message
+

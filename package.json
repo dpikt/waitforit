@@ -1,0 +1,26 @@
+{
+  "name": "waitforit",
+  "version": "1.0.0",
+  "description": "TTPDS",
+  "main": "server.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/dpikt/waitforit.git"
+  },
+  "author": "David Pickart and Dan Sakakini",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/dpikt/waitforit/issues"
+  },
+  "homepage": "https://github.com/dpikt/waitforit",
+  "dependencies": {
+    "body-parser": "^1.15.0",
+    "express": "^4.13.4",
+    "jade": "^1.11.0",
+    "mongoose": "^4.4.8",
+    "nodemailer": "0.7.1"
+  }
+}
