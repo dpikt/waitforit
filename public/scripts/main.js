@@ -14,24 +14,47 @@ $(document).ready(function() {
 	 	}
 	});
 
+	$("#copy-pass").click(function () {
+		copyToClipboard(gPassword);
+	});
+
+	$("#show-pass").click(function () {
+		toggleShowPass();
+	});
+
 	/* ACTIONS */
 
 	function generate(email, date) {
-		email = $.trim(email);
-		console.log(email);
 		date = new Date(date);
-		date = date.toJSON();
+		// date = date.toJSON();
 		post('/generate', {"email": email, "date": date}, function (response) {
-			flash(response);
+			flash("Password generated!");
+			$("#password-section").show();
+			gPassword = response.password;
 		});
 	}
 
 });
 
+/* GLOBALS */
+
+var gShowPass = false;
+var gPassword = "";
+
 /* UI HELPERS */
 
 function flash(message) {
 	$("#error-flash").text(message);
+}
+
+function toggleShowPass() {
+	gShowPass = !gShowPass;
+
+	if (gShowPass) {
+		$("#password-view").text(gPassword);
+	} else {
+		$("#password-view").text("••••••••••••••••");
+	}
 }
 
 

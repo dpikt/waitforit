@@ -16,12 +16,12 @@ exports.setup = function (app) {
                 }   
 
                 newCapsule = new Capsule({email: email, password: password, date: date});
-                newCapsule.save(function(err, user) {
+                newCapsule.save(function(err, capsule) {
                     if (err) {
                         console.log(err);
                         res.status(500).send(err.message);
                     } else {
-                        res.json("complete yo");
+                        res.json(capsule);
                     }
                 });
             }
