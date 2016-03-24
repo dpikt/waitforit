@@ -7,20 +7,21 @@ exports.setup = function (app) {
         .post(
             function (req, res) {
                 var email = req.body.email;
-                var date = req.body.date;
-                var password = Math.random().toString(36).slice(-8);
+                var date = new Date(req.body.date);
+                var password = Math.random().toString(36).slice(-16);
 
-                if (!email || !date || !password) {
-                    res.status(400).send("Must include email, date, and password attributes!");
+                if (!email || !date) {
+                    res.status(400).send("Must include email and date attributes!");
                     return;
                 }   
 
                 newCapsule = new Capsule({email: email, password: password, date: date});
                 newCapsule.save(function(err, user) {
                     if (err) {
+                        console.log(err);
                         res.status(500).send(err.message);
                     } else {
-                        res.send("complete yo");
+                        res.json("complete yo");
                     }
                 });
             }

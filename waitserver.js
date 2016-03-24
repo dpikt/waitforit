@@ -23,8 +23,8 @@ app.set('view engine', 'jade');
 /* REQUESTS */
 
 // Form parsing
-app.use(bodyParser.urlencoded({ extended: true }));
 app.use(bodyParser.json());
+app.use(bodyParser.urlencoded({ extended: true }));
 
 // // Error handling
 // app.use(errorHandlers.logger);

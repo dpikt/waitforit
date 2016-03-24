@@ -1,6 +1,6 @@
 $(document).ready(function() {
 
-	// UI INTERACTION
+	/* UI INTERACTIONS */
 
 	$("#generateButton").click(function () {
 
@@ -8,11 +8,23 @@ $(document).ready(function() {
  		var date = $("#dateInput").val();
 
 	 	if (email.length > 0 && date.length > 0) {
-		 	flash("Generated");
+		 	generate(email, date);
 	 	} else {
 	 		flash("Fill both the fields idiot");
 	 	}
 	});
+
+	/* ACTIONS */
+
+	function generate(email, date) {
+		email = $.trim(email);
+		console.log(email);
+		date = new Date(date);
+		date = date.toJSON();
+		post('/generate', {"email": email, "date": date}, function (response) {
+			flash(response);
+		});
+	}
 
 });
 
@@ -22,13 +34,15 @@ function flash(message) {
 	$("#error-flash").text(message);
 }
 
+
 /* HELPERS */
 
 function post(path, data, callback) {
 	$.ajax({
 		url: path, 
 	 	type: "POST", 
- 		contentType: "application/json; charset=utf-8",
+	 	data: JSON.stringify(data),
+ 		contentType: "application/json",
         dataType: "json",
 	 	success: callback,
 	 	error: function (e) {
