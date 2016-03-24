@@ -10,7 +10,7 @@ html
   body
     h1 Wait For It!
     p Main page
-    form
+    form(onkeypress="return event.keyCode != 13;")
         input#emailInput(type="text" placeholder="email")
         input#dateInput(type="date")
     div#generateButton Generate Password

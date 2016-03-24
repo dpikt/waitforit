@@ -7,10 +7,12 @@ $(document).ready(function() {
  		var email = $("#emailInput").val();
  		var date = $("#dateInput").val();
 
-	 	if (email.length > 0 && date.length > 0) {
-		 	generate(email, date);
-	 	} else {
+	 	if (!(email.length > 0 && date.length > 0)) {
 	 		flash("Fill both the fields idiot");
+		} else if (!validateEmail(email)) {
+		 	flash("Email is invalid");
+		} else {
+	 		generate(email, date);
 	 	}
 	});
 
@@ -26,7 +28,6 @@ $(document).ready(function() {
 
 	function generate(email, date) {
 		date = new Date(date);
-		// date = date.toJSON();
 		post('/generate', {"email": email, "date": date}, function (response) {
 			flash("Password generated!");
 			$("#password-section").show();
@@ -57,7 +58,6 @@ function toggleShowPass() {
 	}
 }
 
-
 /* HELPERS */
 
 function post(path, data, callback) {
@@ -71,7 +71,7 @@ function post(path, data, callback) {
 	 	error: function (e) {
 	 		flash(e.responseText);
 	 	}
-	 });
+	});
 }
 
 // http://stackoverflow.com/a/30905277
@@ -81,4 +81,10 @@ function copyToClipboard(text) {
     $temp.val(text).select();
     document.execCommand("copy");
     $temp.remove();
+}
+
+function validateEmail (email) {
+	console.log(email);
+    var re = /^[-a-z0-9~!$%^&*_=+}{\'?]+(\.[-a-z0-9~!$%^&*_=+}{\'?]+)*@([a-z0-9_][-a-z0-9_]*(\.[-a-z0-9_]+)*\.(aero|arpa|biz|com|coop|edu|gov|info|int|mil|museum|name|net|org|pro|travel|mobi|[a-z][a-z])|([0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}))(:[0-9]{1,5})?$/i;
+    return re.test(email);
 }
