@@ -6,13 +6,13 @@ var mailer = nodemailer.createTransport("SMTP", {
     auth: config.emailAuth
 });
 
-exports.sendMail = function (capsule, callback) {
+exports.sendCapsule = function (capsule, callback) {
 	options = {
 		subject: "Your password has arrived",
 		html: "Here's your password: " + capsule.password,
 		to: capsule.email
 	}
 	mailer.sendMail(options, function(err) {
-		callback(err);
+		if (callback) callback(err);
 	});
 }

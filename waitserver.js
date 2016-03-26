@@ -19,22 +19,22 @@ app.use(express.static(__dirname + '/public/'));
 app.set('views', './app/views');
 app.set('view engine', 'jade');
 
-
 /* REQUESTS */
 
 // Form parsing
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: true }));
 
-// // Error handling
-// app.use(errorHandlers.logger);
-// app.use(errorHandlers.ajax);
-// app.use(errorHandlers.endOfWorld);
-
 // Our routes
 routes.setup(app);
 
-// app.use(errorHandlers.send404);
+// Email sending cron job
+var CronJob = require('cron').CronJob;
+
+// Runs at 12 noon every day
+new CronJob('00 00 12 * * *', function() {
+	routes.sweepCapsules();
+}, null, true, null, null, true);
 
 // Start!
 app.listen(config.port);
