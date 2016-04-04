@@ -4,7 +4,7 @@ var mongoose = require('mongoose'),
 var CapsuleSchema = new Schema({
     email: String,
     password: String,
-    date: String
+    date: Date
 });
 
 // Add schema to db

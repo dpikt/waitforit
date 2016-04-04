@@ -51,14 +51,14 @@ exports.setup = function (app) {
 
 
 exports.sweepCapsules = function () {
-    // Time, what does it all mean?
+
+    // Convert to UTC....
     var today = new Date();
     today.setHours(0, 0, 0, 0);
-    var tomorrow = new Date(today);
-    tomorrow.setDate(today.getDate() + 1);
+    today = new Date(today.getTime() - today.getTimezoneOffset() * 60 * 1000);
 
     // Get all capsules for today
-    Capsule.find({"date": {$gte: today, $lt: tomorrow}}, function (err, capsules) {
+    Capsule.find({"date" : today}, function (err, capsules) {
         if (!err) {
             for (var i = 0; i < capsules.length; i++) {
                 mailer.sendCapsule(capsules[i]);
