@@ -6,17 +6,26 @@ html
 
     script(src="https://code.jquery.com/jquery-1.11.3.min.js")
     script(src="/scripts/main.js")
+    link(rel="stylesheet" type="text/css" href="/styles/normalize.css")
+    link(rel="stylesheet" type="text/css" href="/styles/skeleton.css")
     link(rel="stylesheet" type="text/css" href="/styles/main.css")
+    link(href="//fonts.googleapis.com/css?family=Raleway:400,300,600" rel="stylesheet" type="text/css")
   body
-    h1 Wait For It!
-    p Main page
-    form(onkeypress="return event.keyCode != 13;")
-        input#emailInput(type="text" placeholder="email")
-        input#dateInput(type="date")
-    div#generateButton Generate Password
-    div#password-section
-        div#password-view
-        div#copy-pass Copy
-        div#show-pass Toggle
-    p#error-flash
+    div(class="container")
+        div(class="form-stuff")
+            div(class="row")
+                div(class="one-third column") &nbsp;
+                div(class="one-third column" id="main-box")
+                    h1 Wait For It!
+                    p Main page
+                    form(onkeypress="return event.keyCode != 13;")
+                        input#emailInput(type="text" placeholder="email")
+                        input#dateInput(type="date")
+                    div#generateButton Generate Password
+                    div#password-section
+                        div#password-view
+                        div#copy-pass Copy
+                        div#show-pass Toggle
+                    p#error-flash
+                div(class="one-third column") &nbsp;
 
