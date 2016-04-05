@@ -1,11 +1,33 @@
 body {
-	background: #A9C7D1;
+	/*background: #A9C7D1;*/
 }
 
 #main-box {
-	padding-top: 5em;
+	padding-top: 2em;
+	text-align: center;
 }
 
 #password-section {
 	display: none;
+}
+
+.red {
+	background: red;
+}
+
+.container {
+	padding-top: 2em;
+}
+
+h1, h2, h3 {
+	text-align: center;
+}
+
+.subtitle {
+	font-size: 2em;
+	text-transform: uppercase;
+}
+
+.centered {
+	text-align: center;
 }

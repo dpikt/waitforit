@@ -12,20 +12,43 @@ html
     link(href="//fonts.googleapis.com/css?family=Raleway:400,300,600" rel="stylesheet" type="text/css")
   body
     div(class="container")
-        div(class="form-stuff")
-            div(class="row")
-                div(class="one-third column") &nbsp;
-                div(class="one-third column" id="main-box")
-                    h1 Wait For It!
-                    p Main page
-                    form(onkeypress="return event.keyCode != 13;")
-                        input#emailInput(type="text" placeholder="email")
-                        input#dateInput(type="date")
-                    div#generateButton Generate Password
-                    div#password-section
-                        div#password-view
-                        div#copy-pass Copy
-                        div#show-pass Toggle
-                    p#error-flash
-                div(class="one-third column") &nbsp;
+        h1 Wait For It!
+        h3(class="subtitle") a two-tiered password defense system
+        div(class="row")
+            div(class="six columns offset-by-three" id="main-box")
+                p Enter your email, select a date, and generate your password!
+                form(onkeypress="return event.keyCode != 13;")
+                    div(class="row")
+                        div(class="twelve columns")
+                            label(for="emailInput") Email
+                            input#emailInput(class="u-full-width" type="text" placeholder="email")
+                    div(class="row")
+                        div(class="twelve columns")
+                            p Send me my password in:
+                    div(class="row")
+                        div(class="four columns")
+                            label(for="yearInput") Years
+                            input#yearInput(class="u-full-width" type="number" placeholder="0")
+                        div(class="four columns")
+                            label(for="monthInput") Months
+                            input#monthInput(class="u-full-width" type="number" placeholder="0")
+                        div(class="four columns")
+                            label(for="dayInput") Days
+                            input#dayInput(class="u-full-width" type="number" placeholder="0")
+                    div(class="row")
+                        div(class="twelve columns")
+                            a(href="#")
+                                p Or, choose a date
+                    //- div(class="row")
+                    //-     div(class="twelve columns")
+                    //-         form
+                    //-             input#dateInput(type="date")
+                    div(class="row")
+                        div(class="twelve columns")
+                            button#generateButton(class="button") Generate Password
+                //- div#password-section
+                //-     div#password-view
+                //-     div#copy-pass Copy
+                //-     div#show-pass Toggle
+                p#error-flash
 
