@@ -1,5 +1,5 @@
 body {
-	/*background: #A9C7D1;*/
+	/*background: #1C3E29;*/
 }
 
 #main-box {
@@ -17,6 +17,7 @@ body {
 
 .container {
 	padding-top: 2em;
+	background: white;
 }
 
 h1, h2, h3 {
@@ -24,10 +25,31 @@ h1, h2, h3 {
 }
 
 .subtitle {
-	font-size: 2em;
+	font-size: 1.5em;
 	text-transform: uppercase;
+}
+
+#date-picker {
+	display: none;
 }
 
 .centered {
 	text-align: center;
+}
+
+a {
+	text-decoration: none;
+}
+
+.tagline {
+	text-align: left;
+	font-weight: bold;
+}
+
+.lefty {
+	text-align: left;
+}
+
+.footer {
+	padding-top: 2em;
 }

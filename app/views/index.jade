@@ -8,6 +8,7 @@ html
     script(src="/scripts/main.js")
     link(rel="stylesheet" type="text/css" href="/styles/normalize.css")
     link(rel="stylesheet" type="text/css" href="/styles/skeleton.css")
+    link(rel="stylesheet" type="text/css" href="/styles/pikaday.css")
     link(rel="stylesheet" type="text/css" href="/styles/main.css")
     link(href="//fonts.googleapis.com/css?family=Raleway:400,300,600" rel="stylesheet" type="text/css")
   body
@@ -16,7 +17,8 @@ html
         h3(class="subtitle") a two-tiered password defense system
         div(class="row")
             div(class="six columns offset-by-three" id="main-box")
-                p Enter your email, select a date, and generate your password!
+                p.tagline Wait For It is a tool for encrypting files from yourself.
+                p.lefty Simply enter your email and choose a date - you'll receive a password that you can use later to decrypt your files. #[a(href="#") Learn more]
                 form(onkeypress="return event.keyCode != 13;")
                     div(class="row")
                         div(class="twelve columns")
@@ -39,16 +41,24 @@ html
                         div(class="twelve columns")
                             a(href="#")
                                 p Or, choose a date
-                    //- div(class="row")
-                    //-     div(class="twelve columns")
-                    //-         form
-                    //-             input#dateInput(type="date")
                     div(class="row")
                         div(class="twelve columns")
-                            button#generateButton(class="button") Generate Password
+                            form
+                                //- input#dateInput(type="date" min="today")
+                                input#date-picker(type="text")
+                    div(class="row")
+                        div(class="twelve columns")
+                            button#generateButton(class="button button-primary") Generate Password
                 //- div#password-section
                 //-     div#password-view
                 //-     div#copy-pass Copy
                 //-     div#show-pass Toggle
                 p#error-flash
+        div(class="row centered footer")
+            div(class="twelve columns")
+                p © David Pickart 2016 | Built with #[a(href="http://getskeleton.com") Skeleton]
+
+
+    script(src="/scripts/pikaday.js")
+
 

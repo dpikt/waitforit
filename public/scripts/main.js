@@ -35,6 +35,14 @@ $(document).ready(function() {
 		});
 	}
 
+	var field = $('#date-picker')[0]
+	var picker = new Pikaday({
+	    onSelect: function(date) {
+	        field.value = picker.toString();
+	    }
+	});
+	field.parentNode.insertBefore(picker.el, field.nextSibling);
+
 });
 
 /* GLOBALS */
