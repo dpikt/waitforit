@@ -1,11 +1,21 @@
 $(document).ready(function() {
 
+	/* INIT DATE PICKER */
+	var field = $('#picker-field')[0];
+	var trigger = $('#date-toggle')[0];
+	var picker = new Pikaday({
+	    field: field,
+	    trigger: trigger,
+	    format: 'dd/mm/yyyy'
+	});
+
 	/* UI INTERACTIONS */
 
 	$("#generateButton").click(function () {
 
  		var email = $("#emailInput").val();
- 		var date = $("#dateInput").val();
+ 		var date = $("#picker-field").val();
+ 		console.log(date);
 
 	 	if (!(email.length > 0 && date.length > 0)) {
 	 		flash("Fill both the fields idiot");
@@ -34,14 +44,6 @@ $(document).ready(function() {
 			gPassword = response.password;
 		});
 	}
-
-	var field = $('#date-picker')[0]
-	var picker = new Pikaday({
-	    onSelect: function(date) {
-	        field.value = picker.toString();
-	    }
-	});
-	field.parentNode.insertBefore(picker.el, field.nextSibling);
 
 });
 

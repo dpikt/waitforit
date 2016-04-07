@@ -39,13 +39,12 @@ html
                             input#dayInput(class="u-full-width" type="number" placeholder="0")
                     div(class="row")
                         div(class="twelve columns")
-                            a(href="#")
+                            a#date-toggle(href="#")
                                 p Or, choose a date
                     div(class="row")
                         div(class="twelve columns")
                             form
-                                //- input#dateInput(type="date" min="today")
-                                input#date-picker(type="text")
+                                input#picker-field(type="date")
                     div(class="row")
                         div(class="twelve columns")
                             button#generateButton(class="button button-primary") Generate Password
