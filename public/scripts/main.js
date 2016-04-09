@@ -5,12 +5,12 @@ $(document).ready(function() {
 	$("#generateButton").click(function () {
 
  		var email = $("#emailInput").val();
- 		var date = $("#picker-field").val();
-
+ 		var date = $("#dateInput").val();
+ 		console.log(date);
 	 	if (!(email.length > 0 && date.length > 0)) {
-	 		flash("Fill both the fields idiot");
+	 		flashError("Must enter an email and a date.");
 		} else if (!validateEmail(email)) {
-		 	flash("Email is invalid");
+		 	flashError("Invalid email format.");
 		} else {
 	 		generate(email, date);
 	 	}
@@ -29,7 +29,7 @@ $(document).ready(function() {
 	function generate(email, date) {
 		date = new Date(date);
 		post('/generate', {"email": email, "date": date}, function (response) {
-			flash("Password generated!");
+			flashInfo("Password generated!");
 			$("#password-section").show();
 			gPassword = response.password;
 		});
@@ -44,7 +44,15 @@ var gPassword = "";
 
 /* UI HELPERS */
 
-function flash(message) {
+function flashError(message) {
+	$("#error-flash").addClass("error");
+	$("#error-flash").removeClass("info");
+	$("#error-flash").text(message);
+}
+
+function flashInfo(message) {
+	$("#error-flash").addClass("info");
+	$("#error-flash").removeClass("error");
 	$("#error-flash").text(message);
 }
 
@@ -69,7 +77,7 @@ function post(path, data, callback) {
         dataType: "json",
 	 	success: callback,
 	 	error: function (e) {
-	 		flash(e.responseText);
+	 		flashError(e.responseText);
 	 	}
 	});
 }
