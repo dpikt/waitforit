@@ -1,14 +1,18 @@
 body {
 	/*background: #1C3E29;*/
+	text-align: center;
 }
 
 #main-box {
 	padding-top: 2em;
-	text-align: center;
 }
 
 #password-section {
 	display: none;
+}
+
+#dateInput {
+
 }
 
 .red {
@@ -29,16 +33,20 @@ h1, h2, h3 {
 	text-transform: uppercase;
 }
 
-#picker-field {
-	display: none;
+.left-aligned {
+	text-align: left;
 }
 
-.centered {
+.center-aligned {
 	text-align: center;
 }
 
 a {
 	text-decoration: none;
+}
+
+#generateButton {
+	margin-top: 2em;
 }
 
 .tagline {
@@ -52,4 +60,5 @@ a {
 
 .footer {
 	padding-top: 2em;
+	color: gray;
 }

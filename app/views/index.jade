@@ -1,7 +1,7 @@
 doctype html
 html
   head
-    title Wait For it
+    title Wait For It!
         //- link(rel="shortcut icon" type="image/x-icon" href="/images/favicon.png")
 
     script(src="https://code.jquery.com/jquery-1.11.3.min.js")
@@ -12,39 +12,23 @@ html
     link(rel="stylesheet" type="text/css" href="/styles/main.css")
     link(href="//fonts.googleapis.com/css?family=Raleway:400,300,600" rel="stylesheet" type="text/css")
   body
+    a(href="https://github.com/dpikt/waitforit")
+        img(style="position: absolute; top: 0; right: 0; border: 0;" src="https://camo.githubusercontent.com/a6677b08c955af8400f44c6298f40e7d19cc5b2d/68747470733a2f2f73332e616d617a6f6e6177732e636f6d2f6769746875622f726962626f6e732f666f726b6d655f72696768745f677261795f3664366436642e706e67" alt="Fork me on GitHub" data-canonical-src="https://s3.amazonaws.com/github/ribbons/forkme_right_gray_6d6d6d.png")
     div(class="container")
         h1 Wait For It!
         h3(class="subtitle") a two-tiered password defense system
         div(class="row")
             div(class="six columns offset-by-three" id="main-box")
                 p.tagline Wait For It is a tool for encrypting files from yourself.
-                p.lefty Simply enter your email and choose a date - you'll receive a password that you can use later to decrypt your files. #[a(href="#") Learn more]
+                p.lefty Simply enter your email and choose a date - you'll receive a password that you can use to encrypt your files. Destroy and forget about it, until we send it to you again at the chosen date. #[a(href="#") Why would I ever want this?]
                 form(onkeypress="return event.keyCode != 13;")
-                    div(class="row")
-                        div(class="twelve columns")
+                    div(class="row left-aligned")
+                        div(class="seven columns")
                             label(for="emailInput") Email
                             input#emailInput(class="u-full-width" type="text" placeholder="email")
-                    div(class="row")
-                        div(class="twelve columns")
-                            p Send me my password in:
-                    div(class="row")
-                        div(class="four columns")
-                            label(for="yearInput") Years
-                            input#yearInput(class="u-full-width" type="number" placeholder="0")
-                        div(class="four columns")
-                            label(for="monthInput") Months
-                            input#monthInput(class="u-full-width" type="number" placeholder="0")
-                        div(class="four columns")
-                            label(for="dayInput") Days
-                            input#dayInput(class="u-full-width" type="number" placeholder="0")
-                    div(class="row")
-                        div(class="twelve columns")
-                            a#date-toggle(href="#")
-                                p Or, choose a date
-                    div(class="row")
-                        div(class="twelve columns")
-                            form
-                                input#picker-field(type="date")
+                        div(class="five columns")
+                            label(for="dateInput") Date
+                            input#dateInput(class="u-full-width" type="date")
                     div(class="row")
                         div(class="twelve columns")
                             button#generateButton(class="button button-primary") Generate Password
