@@ -13,33 +13,33 @@ html
   body
     a(href="https://github.com/dpikt/waitforit")
         img(style="position: absolute; top: 0; right: 0; border: 0;" src="https://camo.githubusercontent.com/a6677b08c955af8400f44c6298f40e7d19cc5b2d/68747470733a2f2f73332e616d617a6f6e6177732e636f6d2f6769746875622f726962626f6e732f666f726b6d655f72696768745f677261795f3664366436642e706e67" alt="Fork me on GitHub" data-canonical-src="https://s3.amazonaws.com/github/ribbons/forkme_right_gray_6d6d6d.png")
-    div(class="container")
+    div.container
         h1 Wait For It!
-        h3(class="subtitle") A two-step password system
-        div(class="row")
-            div(class="six columns offset-by-three" id="main-box")
+        h3.subtitle A two-step password system
+        div.row
+            div#main-box.six.columns.offset-by-three
                 p.tagline Wait For It is a tool for encrypting files from yourself.
                 p.left-aligned Simply enter your email and choose a date - you'll receive a password that you can use to encrypt your files. Destroy and forget about it, until we send it to you again at the chosen date. #[a(href="#") Why would I ever want this?]
                 form(onkeypress="return event.keyCode != 13;")
-                    div(class="row left-aligned")
-                        div(class="seven columns")
+                    div.row.left-aligned
+                        div.seven.columns
                             label(for="emailInput") Email
-                            input#emailInput(class="u-full-width" type="text" placeholder="email")
-                        div(class="five columns")
+                            input#emailInput.u-full-width(type="text" placeholder="email")
+                        div.five.columns
                             label(for="dateInput") Date
-                            input#dateInput(class="u-full-width" type="date")
-                    div(class="row")
-                        div(class="twelve columns")
-                            button#generateButton(class="button button-primary") Generate Password
-                    div(class="row")
-                        div(class="twelve columns")
+                            input#dateInput.u-full-width(type="date")
+                    div.row
+                        div.twelve.columns
+                            button#generateButton.button.button-primary Generate Password
+                    div.row
+                        div.twelve.columns
                             p#error-flash &nbsp;
                 //- div#password-section
                 //-     div#password-view
                 //-     div#copy-pass Copy
                 //-     div#show-pass Toggle
-        div(class="row centered footer")
-            div(class="twelve columns")
+        div.row.centered.footer
+            div.twelve.columns
                 p © David Pickart 2016 | Built with #[a(href="http://getskeleton.com") Skeleton]
 
 
