@@ -8,8 +8,8 @@ var mailer = nodemailer.createTransport("SMTP", {
 
 exports.sendCapsule = function (capsule, callback) {
 	options = {
-		subject: "Your password has arrived",
-		html: "Here's your password: " + capsule.password,
+		subject: "Your password has arrived!",
+		html: "Here's your password: " + capsule.password + "<br><br>Thanks for waiting!",
 		to: capsule.email
 	}
 	mailer.sendMail(options, function(err) {

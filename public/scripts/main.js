@@ -1,12 +1,17 @@
+/* GLOBALS */
+
+var gShowPass = false;
+var gSectionToggle = false;
+var gPassword = "test";
+
 $(document).ready(function() {
 
 	/* UI INTERACTIONS */
 
 	$("#generateButton").click(function () {
-
  		var email = $("#emailInput").val();
  		var date = $("#dateInput").val();
- 		console.log(date);
+
 	 	if (!(email.length > 0 && date.length > 0)) {
 	 		flashError("Must enter an email and a date.");
 		} else if (!validateEmail(email)) {
@@ -17,52 +22,80 @@ $(document).ready(function() {
 	});
 
 	$("#copyButton").click(function () {
-		copyToClipboard(gPassword);
+		var success = copyToClipboard(gPassword);
+		if (success) {
+    		flashInfo("Copied to clipboard!");
+    	} else {
+    		flashError("Copy failed, please copy manually.");
+    	}
 	});
 
 	$("#showButton").click(function () {
 		toggleShowPass();
 	});
 
+	$("#infoLink").click(function () {
+		alert("This will link to more info ;)");
+	});
+
 	/* ACTIONS */
 
-	function generate(email, date) {
+	function generate(email, date, callback) {
 		date = new Date(date);
 		post('/generate', {"email": email, "date": date}, function (response) {
-			flashInfo("Password generated!");
-			$("#password-section").show();
 			gPassword = response.password;
+			toggleSections(function () {
+				flashInfo("Password generated!");
+			});
 		});
 	}
 
 });
-
-/* GLOBALS */
-
-var gShowPass = false;
-var gPassword = "";
 
 /* UI HELPERS */
 
 function flashError(message) {
 	$("#errorFlash").addClass("error");
 	$("#errorFlash").removeClass("info");
-	$("#errorFlash").text(message);
+	flash(message);
 }
 
 function flashInfo(message) {
 	$("#errorFlash").addClass("info");
 	$("#errorFlash").removeClass("error");
+	flash(message);
+}
+
+function flash(message) {
 	$("#errorFlash").text(message);
+	$("#errorFlash").fadeIn(400, function () {
+		setTimeout(function () {
+			$("#errorFlash").fadeOut(800);
+		}, 800);
+	});
+}
+
+function toggleSections(callback) {
+	gSectionToggle = !gSectionToggle;
+	if (gSectionToggle) {
+		$("#generateSection").fadeOut(400, function () {
+			$("#passwordSection").fadeIn(400, callback);
+		});
+	} else {
+		$("#passwordSection").fadeOut(400, function () {
+			$("#generateSection").fadeIn(400, callback);
+		});
+	}
 }
 
 function toggleShowPass() {
 	gShowPass = !gShowPass;
-
 	if (gShowPass) {
 		$("#passwordField").val(gPassword);
+		$("#showButton").text("Hide");
 	} else {
 		$("#passwordField").val("••••••••••••••••");
+		$("#showButton").text("Show");
 	}
 }
 
@@ -87,8 +120,9 @@ function copyToClipboard(text) {
     var $temp = $("<input>")
     $("body").append($temp);
     $temp.val(text).select();
-    document.execCommand("copy");
+    var success = document.execCommand("copy");
     $temp.remove();
+    return success;
 }
 
 function validateEmail (email) {

@@ -12,6 +12,10 @@ body {
 }
 
 #errorFlash {
+	display: none;
+}
+
+.flashSpace {
 	margin-top: 2em;
 }
 
@@ -56,6 +60,10 @@ a {
 .footer {
 	/*padding-top: 2em;*/
 	color: gray;
+}
+
+#passwordSection {
+	display: none;
 }
 
 .error {
