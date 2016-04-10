@@ -3,33 +3,17 @@ body {
 	text-align: center;
 }
 
-#mainBox {
-	padding-top: 2em;
-}
-
-#dateInput {
-
-}
-
-#errorFlash {
-	display: none;
-}
-
-.flashSpace {
-	margin-top: 2em;
-}
-
-.red {
-	background: red;
-}
-
 .container {
 	padding-top: 2em;
 	background: white;
 }
 
-h1, h2, h3 {
-	text-align: center;
+#mainBox {
+	padding-top: 2em;
+}
+
+.flashSpace {
+	margin-top: 2em;
 }
 
 .subtitle {
@@ -49,21 +33,12 @@ a {
 	text-decoration: none;
 }
 
-#generateButton, #copyButton {
-	margin: 2em;
-}
-
 .tagline {
 	font-weight: bold;
 }
 
 .footer {
-	/*padding-top: 2em;*/
 	color: gray;
-}
-
-#passwordSection {
-	display: none;
 }
 
 .error {
@@ -74,3 +49,14 @@ a {
 	color: green;
 }
 
+#generateButton, #copyButton {
+	margin: 2em;
+}
+
+#passwordSection {
+	display: none;
+}
+
+#errorFlash {
+	display: none;
+}
