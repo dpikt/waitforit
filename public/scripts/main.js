@@ -16,11 +16,11 @@ $(document).ready(function() {
 	 	}
 	});
 
-	$("#copy-pass").click(function () {
+	$("#copyButton").click(function () {
 		copyToClipboard(gPassword);
 	});
 
-	$("#show-pass").click(function () {
+	$("#showButton").click(function () {
 		toggleShowPass();
 	});
 
@@ -45,24 +45,24 @@ var gPassword = "";
 /* UI HELPERS */
 
 function flashError(message) {
-	$("#error-flash").addClass("error");
-	$("#error-flash").removeClass("info");
-	$("#error-flash").text(message);
+	$("#errorFlash").addClass("error");
+	$("#errorFlash").removeClass("info");
+	$("#errorFlash").text(message);
 }
 
 function flashInfo(message) {
-	$("#error-flash").addClass("info");
-	$("#error-flash").removeClass("error");
-	$("#error-flash").text(message);
+	$("#errorFlash").addClass("info");
+	$("#errorFlash").removeClass("error");
+	$("#errorFlash").text(message);
 }
 
 function toggleShowPass() {
 	gShowPass = !gShowPass;
 
 	if (gShowPass) {
-		$("#password-view").text(gPassword);
+		$("#passwordField").val(gPassword);
 	} else {
-		$("#password-view").text("••••••••••••••••");
+		$("#passwordField").val("••••••••••••••••");
 	}
 }
 

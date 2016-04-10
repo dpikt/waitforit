@@ -3,19 +3,15 @@ body {
 	text-align: center;
 }
 
-#main-box {
+#mainBox {
 	padding-top: 2em;
-}
-
-#password-section {
-	display: none;
 }
 
 #dateInput {
 
 }
 
-#error-flash {
+#errorFlash {
 	margin-top: 2em;
 }
 
@@ -49,8 +45,8 @@ a {
 	text-decoration: none;
 }
 
-#generateButton {
-	margin-top: 2em;
+#generateButton, #copyButton {
+	margin: 2em;
 }
 
 .tagline {

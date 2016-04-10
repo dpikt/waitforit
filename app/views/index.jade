@@ -17,7 +17,7 @@ html
         h1 Wait For It!
         h3.subtitle A two-step password system
         div.row
-            div#main-box.six.columns.offset-by-three
+            div#mainBox.six.columns.offset-by-three
                 p.tagline Wait For It is a tool for encrypting files from yourself.
                 p.left-aligned Simply enter your email and choose a date - you'll receive a password that you can use to encrypt your files. Destroy and forget about it, until we send it to you again at the chosen date. #[a(href="#") Why would I ever want this?]
                 form(onkeypress="return event.keyCode != 13;")
@@ -31,13 +31,19 @@ html
                     div.row
                         div.twelve.columns
                             button#generateButton.button.button-primary Generate Password
+                    //- div.row
+                    //-     div.nine.columns.left-aligned
+                    //-         label(for="passwordField") Password
+                    //-         input#passwordField.u-full-width(type="text" value="••••••••••••••••" readonly)
+                    //-     div.three.columns
+                    //-         label &nbsp;
+                    //-         button#showButton.button Show
+                    //- div.row
+                    //-     div.twelve.columns
+                    //-         button#copyButton.button.button-primary Copy To Clipboard
                     div.row
                         div.twelve.columns
                             p#error-flash &nbsp;
-                //- div#password-section
-                //-     div#password-view
-                //-     div#copy-pass Copy
-                //-     div#show-pass Toggle
         div.row.centered.footer
             div.twelve.columns
                 p © David Pickart 2016 | Built with #[a(href="http://getskeleton.com") Skeleton]
